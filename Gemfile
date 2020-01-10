@@ -10,6 +10,7 @@ source 'https://rubygems.org'
 gem 'rails', '~> 5.0.7', '>= 5.0.7.2'
 
 ###### o w n  d e f i n i t i o n s ######
+
 gem 'nio4r', '2.2'
 gem 'i18n', '1.5.1'
 gem 'nokogiri','1.9.1'
