@@ -15,7 +15,7 @@ gem 'nio4r', '2.2'
 gem 'i18n', '1.5.1'
 gem 'nokogiri'
 
-gem 'bootstrap-sass','~> 3.3.6'
+gem 'bootstrap-sass','~> 3.4.1'
 gem 'sass-rails', '>= 3.2'
 gem 'devise'
 gem 'bootstrap_form', '< 4.3.0'
