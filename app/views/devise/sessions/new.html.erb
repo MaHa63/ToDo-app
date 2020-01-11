@@ -1,4 +1,11 @@
 <div class="container">
+  <div class="jumbotron text-center"  >
+    <h1>Tervetuloa pikoToDo-ohjelmistoon</h1>
+    <p>Tämä on kotisivu Ruby on Rails -työkalulla tehtävien hallintaan toteutetusta pikoToDo-ohjelmistosta</p>
+    <%= button_to "Rekisteröidy", {:controller => :registrations, :action => 'new'}, :method => :get, class: 'btn btn-green' %>
+ </div>
+  
+  
   <div class="row">
     <div class="col-sm-4 col-sm-offset-4 text-center">
       <h3>Kirjaudu</h3>
@@ -21,7 +28,7 @@
             <%= f.check_box :remember_me, label: '  Muista' %>
           <% end %>
 
-          <%= f.submit "Kirjaudu", class: 'btn login-button' %>
+          <%= f.submit "Kirjaudu", class: 'btn btn-green' %>
       <% end %>
     </div>
   </div>

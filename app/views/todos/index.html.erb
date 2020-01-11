@@ -1,0 +1,37 @@
+<div class="container">
+
+  
+
+  <h1>Avoimet tehtävät</h1>
+
+  <table class="table table-striped table-hover">
+    <thead>
+      <tr>
+        <th data-field="description", style="width: 50% ">Kuvaus</th>
+        <th data-field="created",  style="width: 15% ">Avattu</th>
+        <th data-field="priority", style="width: 10% ">Prioriteetti</th>
+        <th data-field="duedate",  style="width: 15% ">Määräpäivä</th>
+        <th data-field="closed",  style="width: 10% ">Closed</th>
+        <th colspan="1"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @todos.each do |todo| %>
+        <tr>
+          <td><%= link_to todo.description, { :action => 'edit', :id => todo.id } %></td>
+          <td><%= todo.created_nil_out %></td>
+          <td><%= todo.priority %></td>
+          <td><%= todo.duedate_nil_out %></td>
+          <td><%= todo.closed %></td>       
+          <td><%= link_to 'Destroy', todo, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <br>
+
+  <%= button_to "Lisää tehtävä", {:controller => :todos, :action => 'new'}, :method => :get, class: 'btn btn-green' %>
+ 
+</div>

@@ -32,3 +32,77 @@ a:hover, a:active, a:link, a:visited {
 .control-label {
 	display: none;
 }
+
+.btn-mha {
+  color: #ffffff;
+  background-color: #60a3bc;
+  border: 1.5px solid #60a3bc !important;
+  }
+
+  .btn-mha:hover {
+  color: #000000;
+  background-color: #ffffff;
+  border: 1.5px solid #60a3bc !important;
+  }
+	
+.btn-gray {
+  color: #ffffff;
+  background-color: #999999;
+  border: 1.5px solid #999999 !important;
+  }
+
+  .btn-gray:hover {
+  color: #1a1a1a;
+  background-color: #ffffff;
+  border: 1.5px solid #999999 !important;
+  }
+
+.btn-green {
+  color: #ffffff;
+  background-color: #3aaa87;
+  border: 1.5px solid #3aaa87 !important;
+  }
+
+  .btn-green:hover {
+  color: #1a1a1a;
+  background-color: #ffffff;
+  border: 1.5px solid #3aaa87 !important;
+  }
+
+.btn-red {
+  color: #ffffff;
+  background-color: #ff4d4d;
+  border: 1.5px solid #ff4d4d !important;
+  }
+
+  .btn-red:hover {
+  color: #1a1a1a;
+  background-color: #ffffff;
+  border: 1.5px solid #ff4d4d !important;
+  }
+
+
+.datepicker.dropdown-menu {
+  background-color:#FFF !important;
+}
+
+
+.verticalhorizontal {
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+}
+
+/*---- Jumbotron --------*/
+.jumbotron {
+   background-color: #d9d9d9 !important; 
+}
+
+.navbar-brand {
+      font-size: 170% !important;
+}
+
+.navbar-brand:hover {
+      color: black !important;
+      font-size: 190% !important;
+}
