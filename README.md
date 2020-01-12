@@ -1,1 +1,1 @@
-Ruby on Rails project with Bootstrap CSS framework and Devise authentication.
+ToDo application based on Ruby on Rails technology, Bootstrap CSS framework and Devise authentication.
