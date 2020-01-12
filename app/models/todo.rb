@@ -18,4 +18,19 @@ class Todo < ApplicationRecord
   	end
   	"#{result}"
   end
+  
+  def priority_as_text
+    case priority
+    when 1
+      result = "Kriittinen"
+    when 2
+      result = "Tärkeä"
+    when 3
+      result = "Hyödyllinen"
+    else
+      result = " "
+    end
+    
+    "#{result}"
+  end
 end

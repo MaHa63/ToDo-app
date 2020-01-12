@@ -16,5 +16,6 @@ Rails.application.routes.draw do
   end
 
   resources :todos
+  post 'close', to:'todos#close'
 
 end
