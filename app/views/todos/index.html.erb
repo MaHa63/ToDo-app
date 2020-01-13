@@ -11,7 +11,7 @@
         <th data-field="created",  style="width: 15% ">Avattu</th>
         <th data-field="priority", style="width: 10% ">Prioriteetti</th>
         <th data-field="duedate",  style="width: 15% ">Määräpäivä</th>
-        <th colspan="1"></th>
+        <th colspan="2"></th>
       </tr>
     </thead>
 
@@ -22,7 +22,8 @@
           <td><%= todo.created_nil_out %></td>
           <td><strong><%= todo.priority_as_text%></strong></td>
           <td><%= todo.duedate_nil_out %></td>      
-          <td><%= button_to 'Sulje', { :controller => :todos, :action => 'close', :id => todo.id }, method: :post, class: "btn btn-red" %></td>
+          <td><%= button_to 'Sulje', { :controller => :todos, :action => 'close', :id => todo.id }, method: :post, class: "btn btn-green btn-xs" %></td>
+          <td><%= button_to 'Poista', { :controller => :todos, :action => 'destroy', :id => todo.id },:method => :delete, class: "btn btn-red btn-xs", data: { confirm: "Oletko varma tietueen poistamisesta ?"} %></td>
         </tr>
       <% end %>
     </tbody>
