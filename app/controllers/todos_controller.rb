@@ -17,6 +17,22 @@ class TodosController < ApplicationController
   def new
     @todo = Todo.new
   end
+  
+  def new_task
+    @todo = Todo.new
+    #-------------------------------------------------
+    #@todo.created = DateTime.now.to_datetime
+    #@todo.completed = ""
+    #@todo.closed = ""
+    #-------------------------------------------------
+    puts "Olemme new_task sisällä"
+    # Modal
+    respond_to do |format|
+      format.html
+      format.js
+    end
+    #
+  end
 
   # GET /todos/1/edit
   def edit
@@ -26,11 +42,11 @@ class TodosController < ApplicationController
   # POST /todos.json
   def create
     @todo = Todo.new(todo_params)
-
+    @todo.created = DateTime.now.to_datetime
     respond_to do |format|
       if @todo.save
-        format.html { redirect_to @todo, notice: 'Todo was successfully created.' }
-        format.json { render :show, status: :created, location: @todo }
+        format.html { redirect_to todos_path, notice: 'Todo was successfully created.' }
+        format.json { render :index, status: :created, location: @todo }
       else
         format.html { render :new }
         format.json { render json: @todo.errors, status: :unprocessable_entity }
@@ -77,6 +93,11 @@ class TodosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def todo_params
-      params.require(:todo).permit(:description, :created, :completed, :priority, :duedate, :closed)
+      params.require(:todos).permit(:description, :created, :completed, :priority, :duedate, :closed)
     end
+  
+    def modal_params
+      params.permit(:active)
+    end
+    
 end

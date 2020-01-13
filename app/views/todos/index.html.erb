@@ -30,6 +30,16 @@
 
   <br>
 
-  <%= button_to "Lisää tehtävä", {:controller => :todos, :action => 'new'}, :method => :get, class: 'btn btn-green' %>
  
+ 
+  <%= link_to 'Lisää tehtävä', new_task_todos_path, {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window', :action => 'new_task', class: 'btn btn-green'} %>
+
+		<div id="myModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		  <div class="modal-dialog" role="document">
+		    <div class="modal-content"></div>
+		  </div>
+		</div>
+
+  </div>
+  <br /><br /><br /><br />
 </div>

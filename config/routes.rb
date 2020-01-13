@@ -15,7 +15,12 @@ Rails.application.routes.draw do
   	get 'signup', to: 'devise/registrations#new'
   end
 
-  resources :todos
+  resources :todos do
+    collection do 
+      get 'todos/new_task' => 'todos#new_task', :as => :new_task
+    end
+  end
+  
   post 'close', to:'todos#close'
 
 end

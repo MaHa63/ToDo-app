@@ -20,6 +20,9 @@ gem 'sass-rails', '>= 3.2'
 gem 'devise'
 gem 'bootstrap_form', '< 4.3.0'
 
+gem 'rails-i18n', '~> 5.1'
+gem 'bootstrap-datepicker-rails'
+
 # Use sqlite3 as the database for Active Record
 #gem 'sqlite3', '~> 1.3','< 1.4'
 # Use Puma as the app server
