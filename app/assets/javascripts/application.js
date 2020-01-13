@@ -19,5 +19,5 @@
 //= require_tree .
 
 $(document).on("focus", "[data-behaviour~='datepicker']", function(e){
-    $(this).datepicker({"format": "dd-mm-yyyy", "weekStart": 1, "autoclose": true})
+    $(this).datepicker({"format": "dd-mm-yyyy", "weekStart": 1, "autoclose": true, calendarWeeks: true,  todayHighlight: true, autoclose: true })
 });

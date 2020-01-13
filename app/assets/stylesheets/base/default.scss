@@ -83,7 +83,12 @@ a:hover, a:active, a:link, a:visited {
 
 
 .datepicker.dropdown-menu {
-  background-color:#FFF !important;
+  background-color: #fff !important;
+}
+
+.datepicker table td:hover {
+  background-color: #3aaa87 !important;
+  color: #fff !important;
 }
 
 
@@ -111,4 +116,5 @@ a:hover, a:active, a:link, a:visited {
 .datepicker {
   z-index: 1151 !important;
 }
+
 /*-------------------------*/
