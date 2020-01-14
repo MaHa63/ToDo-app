@@ -8,9 +8,9 @@
     <thead>
       <tr>
         <th data-field="description", style="width: 60% ">Kuvaus</th>
-        <th data-field="created",  style="width: 15% ">Avattu</th>
-        <th data-field="priority", style="width: 10% ">Prioriteetti</th>
-        <th data-field="duedate",  style="width: 15% ">Määräpäivä</th>
+        <th data-field="created",  style="width: 15% "><%= link_to 'Avattu', todos_path(order: "created") %></th>
+        <th data-field="priority", style="width: 10% "><%= link_to 'Prioriteetti', todos_path(order: "priority") %></th>
+        <th data-field="duedate",  style="width: 15% "><%= link_to 'Määräpäivä', todos_path(order: "duedate") %></th>
         <th colspan="2"></th>
       </tr>
     </thead>
