@@ -1,5 +1,5 @@
 class TodosController < ApplicationController
-  before_action :set_todo, only: [:show, :edit, :update, :destroy]
+  before_action :set_todo, only: [:show, :edit, :update, :destroy ]
   before_action :authenticate_user!
   
   # GET /todos
@@ -37,6 +37,15 @@ class TodosController < ApplicationController
   # GET /todos/1/edit
   def edit
   end
+  
+  def edit_task
+     @todo = Todo.find(params[:id])
+     # Modal
+    respond_to do |format|
+      format.html
+      format.js
+    end 
+  end
 
   # POST /todos
   # POST /todos.json
@@ -58,9 +67,9 @@ class TodosController < ApplicationController
   # PATCH/PUT /todos/1.json
   def update
     respond_to do |format|
-      if @todo.update(todo_params)
-        format.html { redirect_to @todo, notice: 'Todo was successfully updated.' }
-        format.json { render :show, status: :ok, location: @todo }
+      if @todo.update(todo_param)
+        format.html { redirect_to todos_path, notice: 'Todo was successfully updated.' }
+        format.json { render :index, status: :ok, location: @todo }
       else
         format.html { render :edit }
         format.json { render json: @todo.errors, status: :unprocessable_entity }
@@ -94,6 +103,11 @@ class TodosController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def todo_params
       params.require(:todos).permit(:description, :created, :completed, :priority, :duedate, :closed)
+    end
+  
+  
+    def todo_param
+      params.require(:todo).permit(:description, :created, :completed, :priority, :duedate, :closed)
     end
   
     def modal_params

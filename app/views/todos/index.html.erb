@@ -18,7 +18,7 @@
     <tbody>
       <% @todos.each do |todo| %>
         <tr>
-          <td><%= link_to todo.description, { :action => 'edit', :id => todo.id } %></td>
+          <td><%= link_to todo.description, { :remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window', :action => 'edit_task', :id => todo.id }, :method => :post %></td>
           <td><%= todo.created_nil_out %></td>
           <td><strong><%= todo.priority_as_text%></strong></td>
           <td><%= todo.duedate_nil_out %></td>      

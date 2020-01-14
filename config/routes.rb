@@ -18,6 +18,7 @@ Rails.application.routes.draw do
   resources :todos do
     collection do 
       get 'todos/new_task' => 'todos#new_task', :as => :new_task
+      post 'todos/edit_task' => 'todos#edit_task', :as => :edit_task
     end
   end
   

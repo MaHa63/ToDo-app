@@ -1,8 +1,8 @@
 <div class="modal-header">
     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-    <h3 id="myModalLabel">Lisää tehtävä</h3>
-</div>
-<%= bootstrap_form_for(:todos, url: { action:"create"}) do |f| %>
+    <h3 id="myModalLabel">Muokkaa tehtävää</h3>
+</div>, 
+<%= bootstrap_form_for @todo, :url => { action:"update", :id => @todo } do |f| %>
 <div class="modal-body">
    
       <%= f.text_area   :description,
@@ -14,7 +14,7 @@
     <%= f.select  :priority, [["Kriittinen", "1"], ["Tärkeä", "2"], ["Hyödyllinen", "3"]], 
             {prompt: "--Valitse--", label: "Prioriteetti"}    %>
     
-    <%= f.text_field :duedate, 'data-behaviour' => 'datepicker', label: 'Aikataulu', class: 'form-control'  %>
+    <%= f.text_field :duedate_nil_out, 'data-behaviour' => 'datepicker', label: 'Aikataulu', class: 'form-control'  %>
     
 </div>
 <div class="modal-footer">
