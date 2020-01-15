@@ -1,5 +1,6 @@
 class Todo < ApplicationRecord
   
+  belongs_to :user
   
   def created_nil_out
   	if created == nil 

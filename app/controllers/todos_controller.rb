@@ -5,7 +5,9 @@ class TodosController < ApplicationController
   # GET /todos
   # GET /todos.json
   def index
-    @todos = Todo.all
+    ##@user = User.find_by_username(params[:user_id])
+    
+    @todos = Todo.where(user_id: current_user.id)
     
     order = params[:order] || 'created'
     
@@ -58,7 +60,10 @@ class TodosController < ApplicationController
   # POST /todos
   # POST /todos.json
   def create
+    puts "Olemme create"
+    puts current_user.id
     @todo = Todo.new(todo_params)
+    @todo.user_id = current_user.id
     @todo.created = DateTime.now.to_datetime
     respond_to do |format|
       if @todo.save
@@ -110,12 +115,12 @@ class TodosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def todo_params
-      params.require(:todos).permit(:description, :created, :completed, :priority, :duedate, :closed)
+      params.require(:todos).permit(:description, :created, :completed, :priority, :duedate, :closed, :user_id)
     end
   
   
     def todo_param
-      params.require(:todo).permit(:description, :created, :completed, :priority, :duedate, :closed)
+      params.require(:todo).permit(:description, :created, :completed, :priority, :duedate, :closed, :user_id)
     end
   
     def modal_params
