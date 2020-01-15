@@ -18,5 +18,7 @@ module DeviseApp
     #config.web_console.whitelisted_ips = '167.88.61.92'
    
     # --------------
+    config.i18n.available_locales = [:en, :fi]
+    config.i18n.default_locale = :fi
   end
 end

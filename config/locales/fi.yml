@@ -1,0 +1,25 @@
+#
+# This would use the information in config/locales/es.yml.
+#
+# To learn more, please read the Rails Internationalization guide
+# available at http://guides.rubyonrails.org/i18n.html.
+
+fi:
+  hello: "Hello world"
+  activerecord:
+    errors:
+      models:
+        user:
+          data_failures: Syöttötiedoissa vikaa.
+          attributes: 
+            first_name: 
+              blank: "Etunimi ei voi olla tyhjä"
+            last_name: 
+              blank: "Sukunimi voi olla tyhjä."
+            password:
+              blank: "Salasana ei voi olla tyhjä"
+            email:
+              blank: "Sähköpostiosoite ei voi olla tyhjä"
+            password_confirmation:
+              blank: "Salasana täytyy vahvistaa"
+              confirmation: "Salasanan vahvistus ei onnistunut"
