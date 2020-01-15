@@ -14,7 +14,7 @@
     <%= f.select  :priority, [["Kriittinen", "1"], ["Tärkeä", "2"], ["Hyödyllinen", "3"]], 
             {prompt: "--Valitse--", label: "Prioriteetti"}    %>
     
-    <%= f.text_field :duedate_nil_out, 'data-behaviour' => 'datepicker', label: 'Aikataulu', class: 'form-control'  %>
+    <%= f.text_field :duedate, :value => (f.object.duedate.strftime('%d-%m-%Y') if f.object.duedate) , 'data-behaviour' => 'datepicker', label: 'Aikataulu', class: 'form-control datepicker' %>
     
 </div>
 <div class="modal-footer">
