@@ -23,6 +23,9 @@ gem 'bootstrap_form', '< 4.3.0'
 gem 'rails-i18n', '~> 5.1'
 gem 'bootstrap-datepicker-rails'
 
+gem 'will_paginate', '~> 3.0'
+gem 'will_paginate-bootstrap' 
+
 # Use sqlite3 as the database for Active Record
 #gem 'sqlite3', '~> 1.3','< 1.4'
 # Use Puma as the app server

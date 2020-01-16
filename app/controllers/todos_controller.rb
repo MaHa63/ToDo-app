@@ -19,17 +19,12 @@ class TodosController < ApplicationController
   end
 
   def history
+    require 'will_paginate/array'
     ##@user = User.find_by_username(params[:user_id])
     
     @todos = Todo.where(user_id: current_user.id, closed: true )
-    
-    order = params[:order] || 'created'
-    
-    @todos = case order
-      when 'created' then @todos.sort_by{ |t| t.created }
-      when 'priority' then @todos.sort_by{ |t|  t.priority }
-      when 'duedate'  then @todos.sort_by{ |t| t.duedate }
-    end
+        
+    @todos = @todos.paginate(:page => params[:page], :per_page => 5)
   end      
   
   # GET /todos/1

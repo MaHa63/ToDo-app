@@ -6,9 +6,9 @@
     <thead>
       <tr>
         <th data-field="description", style="width: 60% ">Kuvaus</th>
-        <th data-field="created",  style="width: 15% "><%= link_to 'Avattu', todos_path(order: "created") %></th>
-        <th data-field="priority", style="width: 10% "><%= link_to 'Prioriteetti', todos_path(order: "priority") %></th>
-        <th data-field="completed",  style="width: 15% "><%= link_to 'Suljettu', todos_path(order: "completed") %></th>
+        <th data-field="created",  style="width: 15% ">Avattu</th>
+        <th data-field="priority", style="width: 10% ">Prioriteetti</th>
+        <th data-field="completed",  style="width: 15% ">Suljettu</th>
         <th colspan="2"></th>
       </tr>
     </thead>
@@ -26,11 +26,8 @@
       <% end %>
     </tbody>
   </table>
-
-  <br>
-
- 
- 
+  <%= will_paginate @todos, renderer: BootstrapPagination::Rails,  :previous_label => t("edellinen"), :next_label => t("seuraava") %>
+  <br />
   <%= link_to 'Palaa', todos_path, { class: 'btn btn-gray' } %>
 
   </div>
