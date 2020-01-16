@@ -77,7 +77,7 @@ class TodosController < ApplicationController
     @todo.created = DateTime.now.to_datetime
     respond_to do |format|
       if @todo.save
-        format.html { redirect_to todos_path, notice: 'Todo was successfully created.' }
+        format.html { redirect_to todos_path, notice: 'Tehtävä luotu.' }
         format.json { render :index, status: :created, location: @todo }
       else
         format.html { render :new }
@@ -91,7 +91,7 @@ class TodosController < ApplicationController
   def update
     respond_to do |format|
       if @todo.update(todo_param)
-        format.html { redirect_to todos_path, notice: 'Todo was successfully updated.' }
+        format.html { redirect_to todos_path, notice: 'Tehtävä päivitetty.' }
         format.json { render :index, status: :ok, location: @todo }
       else
         format.html { render :edit }
