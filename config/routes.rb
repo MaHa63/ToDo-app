@@ -23,5 +23,7 @@ Rails.application.routes.draw do
   end
   
   post 'close', to:'todos#close'
+  post 'open', to:'todos#open'
+  get 'history', to:'todos#history'
 
 end

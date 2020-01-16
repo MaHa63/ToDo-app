@@ -20,6 +20,15 @@ class Todo < ApplicationRecord
   	"#{result}"
   end
   
+   def completed_nil_out
+  	if completed == nil 
+  		result = ""
+  	else
+  		result = completed.strftime("%d-%m-%Y")
+  	end
+  	"#{result}"
+  end
+  
   def priority_as_text
     case priority
     when 1

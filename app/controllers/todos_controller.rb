@@ -7,7 +7,7 @@ class TodosController < ApplicationController
   def index
     ##@user = User.find_by_username(params[:user_id])
     
-    @todos = Todo.where(user_id: current_user.id)
+    @todos = Todo.where(user_id: current_user.id, closed: false )
     
     order = params[:order] || 'created'
     
@@ -18,6 +18,20 @@ class TodosController < ApplicationController
     end
   end
 
+  def history
+    ##@user = User.find_by_username(params[:user_id])
+    
+    @todos = Todo.where(user_id: current_user.id, closed: true )
+    
+    order = params[:order] || 'created'
+    
+    @todos = case order
+      when 'created' then @todos.sort_by{ |t| t.created }
+      when 'priority' then @todos.sort_by{ |t|  t.priority }
+      when 'duedate'  then @todos.sort_by{ |t| t.duedate }
+    end
+  end      
+  
   # GET /todos/1
   # GET /todos/1.json
   def show
@@ -64,6 +78,7 @@ class TodosController < ApplicationController
     puts current_user.id
     @todo = Todo.new(todo_params)
     @todo.user_id = current_user.id
+    @todo.closed = false
     @todo.created = DateTime.now.to_datetime
     respond_to do |format|
       if @todo.save
@@ -103,7 +118,16 @@ class TodosController < ApplicationController
   def close
     todo = Todo.find(params[:id])
     todo.update_attribute :closed, (not todo.closed)
-    new_status = todo.closed ? "Aktiivinen" : "Valmis"
+    todo.update_attribute :completed, (DateTime.now.to_datetime)
+    new_status = todo.closed ? "Valmis" : "Aktiivinen"
+    redirect_to todos_path, notice:"Tehtävä status vaihdettu tilaan #{new_status}" 
+  end
+            
+  def open
+    todo = Todo.find(params[:id])
+    todo.update_attribute :closed, (not todo.closed)
+    todo.update_attribute :completed, (nil)
+    new_status = todo.closed ? "Valmis" : "Aktiivinen"
     redirect_to todos_path, notice:"Tehtävä status vaihdettu tilaan #{new_status}" 
   end
   
